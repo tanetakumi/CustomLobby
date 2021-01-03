@@ -1,0 +1,4 @@
+name: CustomLobby
+version: ${project.version}
+main: net.serveron.mcstar.customlobby.CustomLobby
+api-version: 1.16
