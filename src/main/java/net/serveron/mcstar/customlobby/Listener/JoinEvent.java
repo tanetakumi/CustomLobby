@@ -10,7 +10,7 @@ public class JoinEvent implements Listener {
 
     public JoinEvent(CustomLobby plugin){
         this.plugin = plugin;
-
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
