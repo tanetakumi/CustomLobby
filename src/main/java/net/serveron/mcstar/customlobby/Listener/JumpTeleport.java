@@ -21,13 +21,15 @@ public class JumpTeleport implements Listener {
     @EventHandler
     public void playerJump(PlayerStatisticIncrementEvent e) {
         if(e.getStatistic()== Statistic.JUMP){
-            Block block = e.getPlayer().getLocation().getBlock().getRelative(BlockFace.DOWN);
+            Location loc = e.getPlayer().getLocation();
+            Block block = loc.getBlock().getRelative(BlockFace.DOWN);
+            if(loc.getBlockY()==1){
+                e.getPlayer().teleport(new Location(block.getWorld(),0,45,0));
+            }
             if(block.getType() == Material.BLUE_WOOL){
                 e.getPlayer().teleport(new Location(block.getWorld(),63,53,0));
             }
-            else if(block.getType() == Material.YELLOW_WOOL){
-                e.getPlayer().teleport(new Location(block.getWorld(),0,45,0));
-            }
+
         }
     }
 }
