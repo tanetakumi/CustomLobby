@@ -1,6 +1,7 @@
 package net.serveron.mcstar.customlobby.Listener;
 
 import net.serveron.mcstar.customlobby.CustomLobby;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Statistic;
@@ -23,8 +24,10 @@ public class JumpTeleport implements Listener {
         if(e.getStatistic()== Statistic.JUMP){
             Location loc = e.getPlayer().getLocation();
             Block block = loc.getBlock().getRelative(BlockFace.DOWN);
-            if(loc.getBlockY()==1){
+            //Bukkit.broadcastMessage(e.getPlayer()+"  "+String.valueOf(loc.getBlockY()));
+            if(loc.getBlockY()<=1){
                 e.getPlayer().teleport(new Location(block.getWorld(),0,45,0));
+
             }
             if(block.getType() == Material.BLUE_WOOL){
                 e.getPlayer().teleport(new Location(block.getWorld(),63,53,0));
